@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calcultor</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: antiquewhite;
+       
+    }
+    .container{
+       height: 100vh;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       background-color: azure;
+       
+      
+
+    }
+    .input{
+        grid-column:span 4;
+        height: 70px;
+        width :260px;
+        border: none;
+        border-radius: 30px;
+        background-color: rgb(39, 24, 24);
+        margin-top: 15px;
+        margin-bottom: 15px;
+        text-align: end;
+        font-size: 50px;
+        color: white;
+       
+
+
+    }
+    .calculator{
+        padding: 15px;
+        background-color: antiquewhite;
+        border-radius: 30px;
+        box-shadow: inset 5px 5px 12px #ffffff,
+                     5px 5px 12px black;
+        display: grid;
+        grid-template-columns: repeat(4,70px);
+    
+    }
+    button{
+        width: 50px;
+        height:48px;
+        border-radius: 30px;
+        margin-top: 3px;
+        margin-bottom:3px;
+        color:black;
+    }
+    .Equal{
+        width: 100px;
+        height: 50px;
+        margin-left: 95%;
+        margin-top: 3px;
+        margin-bottom: 3px;
+    }
+       
+</style>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <input type="text" placeholder="0" class="input" id="output-screen">
+            <button onclick="Clear()">cl</button>
+            <button onclick="Delete()">del</button>
+            <button onclick="display('%')">%</button>
+            <button onclick="display('7')">7</button>
+            <button onclick="display('8')">8</button>
+            <button onclick="display('9')">9</button>
+            <button onclick="display('4')">4</button>
+            <button onclick="display('5')">5</button>
+            <button onclick="display('6')">6</button>
+            <button onclick="display('-')">-</button>
+            <button onclick="display('1')">1</button>
+            <button onclick="display('2')">2</button>
+            <button onclick="display('3')">3</button>
+            <button onclick="display('+')">+</button>
+            <button onclick="display('.')">.</button>
+            <button onclick="display('0')">0</button>
+            <button onclick="calcultor()" class="Equal">=</button>
+            
+        </div>
+    </div>
+</body>
+<script>
+    let outputscreen = document.getElementById("output-screen");
+
+    function display(num){
+        outputscreen.value += num;
+    }
+
+    function calcultor(){
+        try{
+            outputscreen.value = eval(outputscreen.value);
+        }
+        catch(err){
+            alert ("invalid")
+        }
+    }
+
+    function Clear(){
+        outputscreen.value = ""
+    }
+
+    function Delete(){
+        outputscreen.value = outputscreen.value. slice(0,-1);
+    }
+</script>
+</html>
